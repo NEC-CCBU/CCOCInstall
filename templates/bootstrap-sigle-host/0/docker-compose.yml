@@ -1,0 +1,46 @@
+version: '2'
+services:
+  bootstrap:
+    image: registry.nec-saas.com:5000/ccoc/bootstrap:latest
+    environment:
+      CMS_SERVER: ${SERVER}
+      CMS_PORT: '80'
+      AM_GW_SERVER: ${SERVER}
+      AM_GW_PORT: '8244'
+      AM_SERVER: ${SERVER}
+      AM_PORT: '9444'
+      IS_SERVER: ${SERVER}
+      IS_PORT: '9443'
+      IS_DB_PWD: ccoc2016
+      IS_DB_USER: ccoc
+      PORTAL_SERVER: ${SERVER}
+      PORTAL_PORT: '20005'
+      BI_SERVER: ${SERVER}
+      CASSANDRA_RPC_ADDRESS: 0.0.0.0
+      CASSANDRA_RPC_PORT: '9160'
+      CASSANDRA_START_RPC: 'true'
+      TXR_BITRATE: '4096'
+      CMS_MYSQL_DATABASE: dashboard
+      CMS_MYSQL_PASSWORD: ccoc2016
+      CMS_MYSQL_USER: ccoc
+      CMS_MYSQL_ROOT_PASSWORD: NEC2016ccoc
+      SAMLPROXY_SERVER: ${SERVER}
+      SAMLPROXY_PORT: '20006'
+      SAMLPROXY_APP_RULE_H2O: /ml/*;http://ml:54321
+      SAMLPROXY_APP_RULE_H2O_FIX: /3/*;http://ml:54321/ml
+      SAMLPROXY_APP_RULE_NIFI: /nifi/*;http://nifi:8080
+      SAMLPROXY_APP_RULE_NIFI_API: /nifi-api/*;http://nifi:8080
+      SUPERADMIN_PASSWORD: ${PASSWORD}
+      PROXY: ${PROXY}
+      LOTA_LAUNCH: ${LOTA_LAUNCH}
+      ENV: ${ENV}
+      RANCHER_ACCESS_KEY: ${RANCHER_AK}
+      RANCHER_SECRET_KEY: ${RANCHER_SK}
+      RANCHER_URL: http://${SERVER}:8080/
+      STACK_NAME: ${STACK_NAME}
+      STACK_NAME_LB: ${STACK_NAME}_LB
+    volumes:
+    - /var/ccoc:/old_data
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.container.start_once: 'true'

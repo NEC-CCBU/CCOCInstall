@@ -1,0 +1,8 @@
+name: bootstrap
+description: |
+  CCOC bootstrap for a multihost environment.
+version: v.0.0.1
+category: scale
+maintainer: CCOC Team
+license: MIT
+projectURL: www.nec.com

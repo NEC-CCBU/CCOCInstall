@@ -1,0 +1,90 @@
+version: '2'
+
+catalog:
+  name: bootstrap
+  version: 1
+  description: CCOC Bootstrap
+  questions:
+    - variable: STACK_NAME
+      label: Stack name
+      description: Name for the new stack to be created.
+      required: true
+      default: ccoc
+      type: string
+    - variable: AM_SERVER
+      label: API Manager Host
+      description: API Manager Host Public IP or domain name.
+      required: true
+      type: string
+    - variable: AM_GW_SERVER
+      label: API Gateway
+      description: API Gateway (API Server) Host Public IP or domain name.
+      required: true
+      type: string
+    - variable: CMS_SERVER
+      label: CMS Host
+      description: CMS Host Public IP or domain name.
+      required: true
+      type: string
+    - variable: IS_SERVER
+      label: IS Host
+      description: Identity Server Host Public IP or domain name.
+      required: true
+    - variable: PORTAL_SERVER
+      label: Portal Host
+      description: Portal Host Public IP or domain name.
+      required: true
+      type: string
+    - variable: BI_SERVER
+      label: BI Host
+      description: BI Host Public IP or domain name.
+      required: true
+      type: string
+    - variable: SAMLPROXY_SERVER
+      label: SAMLProxy Host
+      description: SAMLProxy Host Public IP or domain name.
+      required: true
+      type: string
+    - variable: PROXY
+      label: HTTP Proxy
+      description: HTTP Proxy for internet access.
+      required: false
+      type: string
+    - variable: LOTA_LAUNCH
+      label: Start Lota on start?
+      description: Enable LOTA on start.
+      required: true
+      type: boolean
+    - variable: ENV
+      label: Type of environment
+      description: Type of environment.
+      required: true
+      type: enum
+      options:
+        - PRO
+        - DEV
+    - variable: RANCHER_SERVER
+      label: Rancher host
+      description: Rancher Server IP.
+      required: true
+      type: string
+    - variable: RANCHER_AK
+      label: Rancher access key
+      description: Rancher user name.
+      required: true
+      type: string
+    - variable: RANCHER_SK
+      label: Rancher secret key
+      description: Rancher user password.
+      required: true
+      type: string
+    - variable: PASSWORD
+      label: Superadmin password
+      required: false
+      default: necpass4
+      type: password
+
+services:
+  bootstrap:
+    scale: 1
+    start_on_create: true
