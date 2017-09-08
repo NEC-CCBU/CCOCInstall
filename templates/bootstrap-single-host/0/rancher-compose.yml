@@ -34,16 +34,6 @@ catalog:
       options:
         - PRO
         - DEV
-    - variable: RANCHER_AK
-      label: Rancher access key
-      description: Rancher user name.
-      required: true
-      type: string
-    - variable: RANCHER_SK
-      label: Rancher secret key
-      description: Rancher user password.
-      required: true
-      type: string
     - variable: PASSWORD
       label: Superadmin password
       required: false
@@ -54,3 +44,6 @@ services:
   bootstrap:
     scale: 1
     start_on_create: true
+    labels:
+      io.rancher.container.create_agent: true
+      io.rancher.container.agent.role: environment
