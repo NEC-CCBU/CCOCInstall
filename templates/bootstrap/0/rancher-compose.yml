@@ -65,6 +65,7 @@ catalog:
       description: Path to CCOC volumes.
       required: true
       default: /vol-containers/ccoc
+      type: string
     - variable: ENV
       label: Type of environment
       description: Type of environment.
