@@ -26,6 +26,16 @@ catalog:
       description: Enable LOTA on start.
       required: true
       type: boolean
+    - variable: CLEAN_DATA
+      label: Clean previous CCOC data?
+      description: Removes data from previous CCOC containers.
+      required: true
+      type: boolean
+    - variable: CCOC_VOLUMES
+      label: CCOC Volumes
+      description: Path to CCOC volumes.
+      required: true
+      default: /vol-containers/ccoc
     - variable: ENV
       label: Type of environment
       description: Type of environment.

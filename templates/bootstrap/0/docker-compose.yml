@@ -37,7 +37,7 @@ services:
       STACK_NAME: ${STACK_NAME}
       STACK_NAME_LB: ${STACK_NAME}_LB
     volumes:
-    - /var/ccoc:/old_data
+    - ${CCOC_VOLUMES}:/old_data
     labels:
       io.rancher.container.pull_image: always
       io.rancher.container.start_once: 'true'
