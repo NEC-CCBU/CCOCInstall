@@ -37,6 +37,7 @@ services:
       ENV: ${ENV}
       STACK_NAME: ${STACK_NAME}
       STACK_NAME_LB: ${STACK_NAME}_LB
+      CCOC_VOLUMES: ${CCOC_VOLUMES}
     volumes:
     - ${CCOC_VOLUMES}:/old_data
     labels:
