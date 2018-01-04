@@ -30,6 +30,7 @@ catalog:
       label: IS Host
       description: Identity Server Host Public IP or domain name.
       required: true
+      type: string
     - variable: PORTAL_SERVER
       label: Portal Host
       description: Portal Host Public IP or domain name.
